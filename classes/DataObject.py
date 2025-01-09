@@ -3,14 +3,14 @@ class DataObject:
     def __init__(self):
         self.site_id = None
 
-        self.new_donor = True
+        self.new_donor = None
 
         #used in new_donor
         self.donor_id = None
         self.donor_birth_date = None
         self.donor_gender_ind = None
-        self.donor_land_ind = None
-        self.donor_program_code_id = None
+        self.donor_lang_ind = None
+        self.donor_program_id = None
         self.donor_collection_type_code = None
         self.donor_number = None
         self.donor_first_name = None
@@ -24,7 +24,6 @@ class DataObject:
         self.consent = None
         self.questionnaire = None
         self.physical = None
-
 
         # used in new_collection
         self.collection_number = None

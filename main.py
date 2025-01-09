@@ -27,7 +27,10 @@ data_object.new_donor = True
 data_object = new_donor(data_object, db_properties, output_path)
 
 #create the new visit and associated records
-new_visit(data_object, db_properties, output_path)
+data_object = new_visit(data_object, db_properties, output_path)
+
+
+print(data_object.visit_number)
 
 #create the new interview(s) and associated records
 #new_interviews(data_object, True, True, True, False, path)

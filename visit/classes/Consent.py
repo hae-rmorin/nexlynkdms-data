@@ -3,8 +3,10 @@ from visit.classes.Activity import Activity
 
 class Consent(Activity):
     def __init__(self, id, dictionary):
-        super().__init__(id, donor_id, visit_id)
-        self.consent_type_id = dictionary['']
+        super().__init__(id, dictionary)
+        self.consent_type_id = dictionary['consent.consentTypeId']
+        self.result_value = 'ACCEPTED'
+        self.result_assessment_ind = 'OK'
 
     @staticmethod
     def export_path():

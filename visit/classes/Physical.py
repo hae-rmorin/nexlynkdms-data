@@ -2,9 +2,11 @@
 from visit.classes.Activity import Activity
 
 class Physical(Activity):
-    def __init__(self, id, donor_id, visit_id, dictionary):
-        super().__init__(id, donor_id, visit_id)
-        self.physical_type_id = dictionary['']
+    def __init__(self, id, dictionary):
+        super().__init__(id, dictionary)
+        self.physical_type_id = dictionary['physicalType.code.physical']
+        self.result_value = 'PASS'
+        self.result_assessment_ind = 'OK'
 
     @staticmethod
     def export_path():
