@@ -2,10 +2,12 @@
 from visit.classes.Activity import Activity
 
 class Review(Activity):
-    def __init__(self, id, donor_id, visit_id, dictionary):
-        super().__init__(id, donor_id, visit_id)
-        self.review_type_id = dictionary['']
-        self.ref_number = None
+    def __init__(self, id, review_type_id, ref_number, dictionary):
+        super().__init__(id, dictionary)
+        self.review_type_id = review_type_id,
+        self.result_value = 'PASS'
+        self.result_assessment_ind = 'OK'
+        self.ref_number = ref_number
         self.custom_result_ind = None
 
     @staticmethod

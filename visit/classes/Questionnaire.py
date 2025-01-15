@@ -2,11 +2,13 @@
 from visit.classes.Activity import Activity
 
 class Questionnaire(Activity):
-    def __init__(self, id, donor_id, visit_id, dictionary):
-        super().__init__(id, donor_id, visit_id)
-        self.questionnaire_type_id = dictionary['']
+    def __init__(self, id,  dictionary):
+        super().__init__(id, dictionary)
+        self.questionnaire_type_id = dictionary['questionnaire.questionnaireTypeId']
+        self.result_value = 'PASS'
+        self.result_assessment_ind = 'OK'
 
-@staticmethod
+    @staticmethod
     def export_path():
         return '/visit/dnr$questionnaires/questionnaires.csv'
 

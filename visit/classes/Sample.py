@@ -2,10 +2,12 @@
 from visit.classes.Activity import Activity
 
 class Sample(Activity):
-    def __init__(self, id, donor_id, visit_id, sample_number, dictionary):
-        super().__init__(id, donor_id, visit_id)
-        self.sample_type_id = dictionary['']
-        self.sample_number = sample_number
+    def __init__(self, id, sample_type_id, dictionary):
+        super().__init__(id, dictionary)
+        self.sample_type_id = sample_type_id
+        self.sample_number = dictionary['visit.collectionNumber']
+        self.result_value = 'DRAWN'
+        self.result_assessment_ind = 'OK'
 
     @staticmethod
     def export_path():

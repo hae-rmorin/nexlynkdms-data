@@ -2,38 +2,38 @@ from classes.Record import *
 
 #Visit
 class Visit(Record):
-    def __init__(self, id, donor_id, dictionary):
+    def __init__(self, id, dictionary):
         super().__init__(id)
-        self.donor_id = donor_id
-        self.visit_number = None
-        self.site_id = dictionary['siteId']
-        self.program_id = None
-        self.visit_type_id = None
-        self.collection_type_code = None
-        self.status_ind = None
-        self.checkin_ts = None
-        self.checkout_ts = None
+        self.donor_id = dictionary['visit.donorId']
+        self.visit_number = dictionary['visit.visitNumber']
+        self.site_id = dictionary['visit.siteId']
+        self.program_id = dictionary['visit.programId']
+        self.visit_type_id = dictionary['visit.visitTypeId']
+        self.collection_type_code = dictionary['visit.collectionTypeCode']
+        self.status_ind = 'CLOSED'
+        self.checkin_ts = dictionary['visit.visitDate'] + ' 09.00.00.000000000 AM'
+        self.checkout_ts = dictionary['visit.visitDate'] + ' 11.00.00.000000000 AM'
         self.fingerstick_ts = None
-        self.screening_form_id = None
-        self.donor_suitability_ruleset_id = None
-        self.collection_number = None
-        self.language_ind = None
-        self.is_donation_completed = None
-        self.ppta_report_class_ind = None
-        self.visit_date = None
-        self.donor_suitability_result_ind = None
+        self.screening_form_id = dictionary['visit.screeningFormId']
+        self.donor_suitability_ruleset_id = dictionary['visit.donorSuitabilityRulesetId']
+        self.collection_number = dictionary['visit.collectionNumber']
+        self.language_ind = 'EN'
+        self.is_donation_completed = 1
+        self.ppta_report_class_ind = dictionary['visit.pptaReportClassInd']
+        self.visit_date = dictionary['visit.visitDate']
+        self.donor_suitability_result_ind = 'SUITABLE'
         self.donor_suitability_comment = None
-        self.is_ppta_reportable = None
-        self.is_ppta_tested = None
-        self.is_ppta_reactive = None
-        self.is_cancel_required = None
+        self.is_ppta_reportable = 1
+        self.is_ppta_tested = 0
+        self.is_ppta_reactive = 0
+        self.is_cancel_required = 0
         self.reason_to_cancel = None
-        self.is_vip_visit = None
-        self.is_escalated = None
+        self.is_vip_visit = 0
+        self.is_escalated = 0
         self.ema_report_class_ind = None
         self.escalation_reason = None
-        self.is_visit_cancelled = None
-        self.bio_consent = None
+        self.is_visit_cancelled = 0
+        self.bio_consent = 1
 
     @staticmethod
     def export_path():

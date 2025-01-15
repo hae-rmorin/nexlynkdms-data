@@ -1,10 +1,10 @@
 #VisitLog
 class VisitLog:
-    def __init__(self):
-        self.visit_id = None
-        self.log_text = None
-        self.log_ts = None
-        self.logged_by_user_id = None
+    def __init__(self, dictionary):
+        self.visit_id = dictionary['visit.id']
+        self.log_text = '\'Visit Closed\''
+        self.log_ts = dictionary['visit.visitDate'] + ' 11.00.00.000000000 AM'
+        self.logged_by_user_id = 'ADMIN'
 
     @staticmethod
     def export_path():
