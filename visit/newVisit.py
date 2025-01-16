@@ -114,7 +114,7 @@ def new_visit(data_object, db_properties, output_path):
     samples = build_samples(sample_id, dictionary, output_path)
     screening_tests = build_screening_tests(screening_test_id, dictionary, output_path)
 
-    return update_data_object(data_object, visit)
+    return update_data_object(data_object, visit, [consent], [questionnaire], [physical])
 
 
 def build_visit(id, dictionary, output_path):
@@ -193,8 +193,13 @@ def build_screening_tests(id, dictionary, output_path):
     generate_csv.export(ScreeningTest.csv_header(), screening_tests, output_path + ScreeningTest.export_path())
     return screening_tests
 
-def update_data_object(data_object, visit):
+def update_data_object(data_object, visit, consents, questionnaires, physicals):
     data_object.visit_id = visit.id
     data_object.visit_number = visit.visit_number
     data_object.collection_number = visit.collection_number
+
+    data_object.consent = consents[0]
+    data_object.questionnaires = questionnaires[0]
+    data_object.physicals = physicals[0]
+
     return data_object
