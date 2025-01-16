@@ -2,10 +2,10 @@ from classes.Record import *
 
 #InterviewResponse
 class InterviewResponse(Record):
-    def __init__(self, interview, dictionary):
+    def __init__(self, interview, question_id, dictionary):
         super().__init__(id)
         self.interview_id = interview.id
-        self.question_id = None
+        self.question_id = question_id
         self.seq = None
         self.response_ts = None
         self.status_ind = None

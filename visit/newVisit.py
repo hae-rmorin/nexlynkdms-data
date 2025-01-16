@@ -100,9 +100,17 @@ def new_visit(data_object, db_properties, output_path):
         dictionary['sample.sampleTypeId.aby'] = sample_types[dictionary['sampleType.code.aby']]['ID']
         dictionary['sample.sampleTypeId.serum'] = sample_types[dictionary['sampleType.code.serum']]['ID']
 
+        # to pass to the data_object
+        cons = dictionary['consentType.code.plasmaphereis']
+        phys = dictionary['physicalType.code.physical']
+        qnr = dictionary['questionnaireType.code.fdhq']
 
     else:
         print("EXISTING DONOR")
+
+        cons = None
+        phys = None
+        qnr = dictionary['questionnaireType.code.adhq']
 
     # do the work
     visit = build_visit(visit_id, dictionary, output_path)
@@ -114,7 +122,7 @@ def new_visit(data_object, db_properties, output_path):
     samples = build_samples(sample_id, dictionary, output_path)
     screening_tests = build_screening_tests(screening_test_id, dictionary, output_path)
 
-    return update_data_object(data_object, visit, [consent], [questionnaire], [physical])
+    return update_data_object(data_object, visit, [cons], [qnr], [phys])
 
 
 def build_visit(id, dictionary, output_path):
